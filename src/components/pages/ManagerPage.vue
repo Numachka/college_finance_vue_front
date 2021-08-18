@@ -3,19 +3,17 @@
     <base-header>Personnel and Payment Management</base-header>
     <div class="innerDiv firstDiv">
       <base-subheader>Students</base-subheader>
-      <base-table :data="dummyStudentList"></base-table>
+      <base-table :columns="studentColumn" :data="dummyStudentList"></base-table>
       <base-button>Add Student</base-button>
-      <base-button>Show Students</base-button>
     </div>
     <div class="innerDiv">
       <base-subheader>Workers</base-subheader>
-      <base-table :data="dummyWorkerList"></base-table>
+      <base-table :columns="workerColumn" :data="dummyWorkerList"></base-table>
       <base-button>Add Worker</base-button>
-      <base-button>Show Workers</base-button>
     </div>
     <div>
       <base-subheader>Finances</base-subheader>
-      <base-button>Generate Report</base-button>
+      <router-link to="/report"><base-button>Generate Report</base-button></router-link>
     </div>
   </div>
 </template>
@@ -31,6 +29,12 @@ export default {
   components: {BaseButton, BaseTable, BaseHeader, BaseSubheader},
   data: function () {
     return {
+      studentColumn: {
+            colA: "Avatar",
+            colB: "Full Name",
+            colC: "Email",
+            colD: "Balance"
+          },
       dummyStudentList: [
         {
           colA: "jack.jpg",
@@ -39,6 +43,12 @@ export default {
           colD: "4000"
         }
       ],
+      workerColumn: {
+        colA: "Avatar",
+        colB: "Full Name",
+        colC: "Email",
+        colD: "Payment"
+      },
       dummyWorkerList: [
         {
           colA: "worker,jpg",

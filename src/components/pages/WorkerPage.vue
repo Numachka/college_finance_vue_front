@@ -14,52 +14,18 @@ export default {
   data: function() {
     return {
       //TODO These will be filled according to the url received.
-      fullName: "Nahum Kletkin",
+      fullName: "",
       columnNames: {
         colA: "Course Number",
         colB: "Course Name",
         colC: "Course Credit",
         colD: "Salary"
       },
-      dummyCourseList: [
-        {
-          colA: "10122",
-          colB: "Linear Algebra",
-          colC: "5",
-          colD: "1000"
-        },
-        {
-          colA: "10124",
-          colB: "Calculus 2",
-          colC: "5",
-          colD: "1000"
-        },
-        {
-          colA: "40127",
-          colB: "Finances for Engineers",
-          colC: "2",
-          colD: "400"
-        },
-        {
-          colA: "10111",
-          colB: "Linear Algebra",
-          colC: "5",
-          colD: "1000"
-        },
-        {
-          colA: "10533",
-          colB: "Calculus 2",
-          colC: "5",
-          colD: "1000"
-        },
-        {
-          colA: "40323",
-          colB: "Finances for Engineers",
-          colC: "2",
-          colD: "400"
-        }
-      ]
+      dummyCourseList: []
     }
+  },
+  beforeCreate() { //Before page loads we fetch data.
+
   }
 }
 </script>

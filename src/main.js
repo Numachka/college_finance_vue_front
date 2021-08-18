@@ -7,9 +7,6 @@ import WorkerPage from "@/components/pages/WorkerPage";
 import ManagerPage from "@/components/pages/ManagerPage";
 import ReportPage from "@/components/pages/ReportPage";
 
-Vue.config.productionTip = false
-Vue.use(VueRouter);
-
 const router = new VueRouter({
     mode: 'history',
     routes: [
@@ -20,6 +17,9 @@ const router = new VueRouter({
         {path: '/report', component: ReportPage}
     ]
 })
+
+Vue.config.productionTip = false
+Vue.use(VueRouter);
 
 new Vue({
     router,

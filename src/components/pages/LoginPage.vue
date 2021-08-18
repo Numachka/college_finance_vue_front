@@ -5,9 +5,8 @@
     Digital Twin <br>
     (Demo)
   </base-header>
-  <router-link to="/student/1"><BaseButton>Login as student 1</BaseButton></router-link>
-  <router-link to="/worker/1"><BaseButton>Login as worker 1</BaseButton></router-link>
-  <router-link to="/manager"><BaseButton>Login as manager</BaseButton></router-link>
+  <base-input></base-input>
+  <BaseButton>Login</BaseButton>
   <p id="tutorial"></p>
   <a href="https://github.com/Numachka/college_finance_digital_twin" id="source"></a>
 </div>
@@ -16,9 +15,10 @@
 <script>
 import BaseHeader from "@/components/base/BaseHeader";
 import BaseButton from "@/components/base/BaseButton";
+import BaseInput from "@/components/base/BaseInput";
 export default {
   name: "LoginPage",
-  components: { BaseButton, BaseHeader},
+  components: {BaseInput, BaseButton, BaseHeader},
   data: function() {
     return {
       showOverlay: false,
@@ -33,9 +33,10 @@ let j = 0;
 let speed = 35;
 let tutorialMessage =  `Hello! Welcome to our college finance digital twin demo project.\n` +
     `In this small CRUD full stack application we have built a demo for managing students and workers in a college.\n` +
-    `Choose one of the login buttons to login as that person in the system to view his use cases.\n` +
+    `Enter one of the demo email login addresses to login as that person in the system to view his use cases.\n` +
+    `manager@example.com, student1@example.com or worker1@example.com\n`+
     `The most interesting one is the manager page. From it you can view all the users in the system and generate a report.\n`+
-    `Front end is built using Vue.js.\n` +
+    `Front end is built using Vue.js and Vue router.\n` +
     `Back end is built with Java and Spring Boot.\n` +
     `Database is MySQL hosted on \n` +
     `The application was deployed using Heroku CLI.\n\n` +
