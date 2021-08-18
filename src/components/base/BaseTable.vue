@@ -4,16 +4,16 @@
       <list-overlay></list-overlay>
     </div>
     <ul class="coloredText">
-      <li>Course Number</li>
-      <li>Course Name</li>
-      <li>Credits</li>
-      <li>Price</li>
+      <li>{{ columns.colA }}</li>
+      <li>{{ columns.colB }}</li>
+      <li>{{ columns.colC }}</li>
+      <li>{{ columns.colD }}</li>
     </ul>
     <hr>
     <ul class="courseListItem"
         v-for="datum in data"
         :key="datum.colA"
-        v-on:click="viewDetails(datum.colA, datum.colB, datum.colC, datum.colD,)">
+        >
       <li>{{ datum.colA }}</li>
       <li>{{ datum.colB }}</li>
       <li>{{ datum.colC }}</li>
@@ -31,16 +31,16 @@ import ListOverlay from "@/components/overlays/ListOverlay";
 export default {
   name: "BaseTable",
   components: {ListOverlay},
-  props: ['data'],
+  props: ['columns','data'], //Columns contains the column names. Data contains the rows.
   data() {
     return {
       totalPaymentValue: 0
     }
   },
   methods: {
-    viewDetails(colA, colB, colC, colD) {
-
-    }
+    // viewDetails(colA, colB, colC, colD) { //Overlay triggering function.
+    //
+    // }
   },
   computed: {
     calculateTotalPayment() {

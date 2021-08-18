@@ -37,8 +37,8 @@ let tutorialMessage =  `Hello! Welcome to our college finance digital twin demo 
     `The most interesting one is the manager page. From it you can view all the users in the system and generate a report.\n`+
     `Front end is built using Vue.js.\n` +
     `Back end is built with Java and Spring Boot.\n` +
-    `Database is MySQL\n` +
-    `The application is hosted on Heroku.\n\n` +
+    `Database is MySQL hosted on \n` +
+    `The application was deployed using Heroku CLI.\n\n` +
     `Shahar Michalei, Nahum Kletkin, Ram Friedman, Naor Pahima, Nir Shervi and Gal Birka. `;
 let sourceCode = `Click here to view the source code on GithHub.`;
 
