@@ -20,7 +20,7 @@
       <li>{{ datum.colD }}</li>
     </ul>
     <ul class="coloredText">
-      <li>Total price:</li>
+      <li>Total:</li>
       <li>{{ calculateTotalPayment }}</li>
     </ul>
   </div>
@@ -36,11 +36,6 @@ export default {
     return {
       totalPaymentValue: 0
     }
-  },
-  methods: {
-    // viewDetails(colA, colB, colC, colD) { //Overlay triggering function.
-    //
-    // }
   },
   computed: {
     calculateTotalPayment() {

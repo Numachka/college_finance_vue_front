@@ -1,30 +1,57 @@
 <template>
   <div>
-    <input type="email" id="email" name="email" placeholder="manager or student1@example.com">
+    <fieldset>
+      <legend>
+        <label :for="this.labelFor">{{ this.label }}</label>
+      </legend>
+      <input :type="this.inputType"
+           :id="this.inputId"
+           :name="this.inputName"
+      >
+    </fieldset>
   </div>
 </template>
 
 <script>
 export default {
-  name: "BaseInput"
+  name: "BaseInput",
+  props: ["inputId", "inputType", "inputName", "label", "labelFor"],
+  emits: ["value"],
+  methods: {
+    onSubmit() {
+      this.$emit('submitted', this.name);
+    }
+  }
 }
 </script>
 
 <style scoped>
 input {
-  padding: 0.5em ;
-  width: 20em;
-  margin: 0.5em;
+  width: 18em;
+  margin: 0 0.5em ;
   color: #ffffff;
   font-size: 1em;
-  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
-  background-color: #45454a;
+  background-color: #303030;
   border: none;
-  border-bottom: solid 1px #000000;
+}
+
+input:focus {
+  outline: none;
+}
+
+fieldset {
+  padding: 0.5em;
+  margin: 0.5em;
   border-radius: 0.3em;
 }
 
-::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+legend {
+  padding: 0 0.5em;
 }
+
+label {
+  transition: all linear 0.1s;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 </style>

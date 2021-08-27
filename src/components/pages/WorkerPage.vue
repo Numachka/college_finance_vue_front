@@ -21,11 +21,57 @@ export default {
         colC: "Course Credit",
         colD: "Salary"
       },
-      dummyCourseList: []
+      dummyCourseList: [],
+      http: new XMLHttpRequest()
     }
   },
-  beforeCreate() { //Before page loads we fetch data.
-
+  methods: {
+//Displays the list in the student.html page inside of ul element with id "studentList".
+    displayWorkerData() {
+      let that = this;
+      const url = `${that.$store.state.sessionServerURLPrefix}/twins/items/`+
+          `${that.$store.state.sessionSpace}/${that.$store.state.sessionEmail}/`+
+          `${that.$store.state.sessionSpace}/${that.$store.state.sessionID}`;
+      that.http.open("GET", url, true);
+      that.http.setRequestHeader('Accept', 'application/json');
+      that.http.send();
+      that.http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let resp = this.response;
+          let data = JSON.parse(resp);
+          that.displayWorkerDetails(data);
+        }
+      }
+    },
+    displayWorkerDetails(userData) {
+      this.fullName = userData.name;
+    }
+  },
+  computed: {},
+  beforeMount() {
+    this.displayWorkerData();
+  },
+  mounted() {
+    this.dummyCourseList = [
+      {
+        colA: "10123",
+        colB: "Engineering",
+        colC: "worker1@example.com",
+        colD: "3000"
+      },
+      {
+        colA: "10124",
+        colB: "Vue",
+        colC: "worker1@example.com",
+        colD: "3500"
+      },
+      {
+        colA: "10125",
+        colB: "Philosophy",
+        colC: "worker1@example.com",
+        colD: "1000"
+      },
+    ]
   }
 }
 </script>
